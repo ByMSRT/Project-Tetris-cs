@@ -36,14 +36,14 @@
     z-index: 10;
 }
 
-.grid {
+/* .grid {
     color: red;
-}
+} */
 
-.row {
+.grid {
     position: relative;
-    top: -1450px;
-    left: -2px;
+    top: -660px;
+    left: 24px;
 }
 
 .td {

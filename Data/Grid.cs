@@ -1,11 +1,12 @@
 using System;
 
-namespace Tetris {
+namespace Project_Tetris_cs.Data {
     public class Grid {
         public int row {get; set;}
 
         public int column {get; set;}
 
+        // Tableau à double dimension
         public int[,] finallyGrid;
 
         // Construction de la grille finale 

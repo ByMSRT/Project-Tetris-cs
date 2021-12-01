@@ -1,7 +1,9 @@
 @page "/game"
+@using Project_Tetris_cs.Data;
 
 @code {
-    Grid grid= new Grid(20, 10);
+    Grid grid = new Grid(20, 10);
+
 }
 
 <div class="title">
@@ -13,8 +15,18 @@
     <div class="background">
         <img class="background_b" src="/img/background.png">
         <div class="grid">
-            @for (int i = grid.)
-            <td></td>
+            <div class="tetris-container" tabindex="0">
+                @for (int i = grid.row; i >= 1; i--)
+                {
+                    <div class="tetris-row">
+                        @for (int j = 1; j <= grid.column; j++)
+                        {
+                            <td class="td" ></td> 
+                        }
+                    </div>
+                }
+            </div>
+            
         </div>
     </div>
     <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
