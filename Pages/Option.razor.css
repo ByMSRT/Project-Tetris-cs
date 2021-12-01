@@ -1,0 +1,106 @@
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone_outline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone {
+    height: 750px;
+    width: 750px;
+    z-index: 2;
+}
+
+.background {
+    position: relative;
+    top: -726px;
+    right: 3px;
+}
+
+.background_b {
+    height: 710px;
+    width: 350px;
+    border-radius: 37px;
+}
+
+.back {
+    position: relative;
+    top: -1670px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+.grid {
+    position: relative;
+    top: -650px;
+    right: -85px;
+    z-index: 3;
+}
+
+.grid_b {
+    height: 90px;
+    z-index: 4;
+}
+
+.speed {
+    position: relative;
+    top: -650px;
+    right: -85px;
+    z-index: 3;
+}
+
+.speed_b {
+    height: 90px;
+    z-index: 4;
+}
+
+.normal {
+    position: relative;
+    top: -650px;
+    right: -125px;
+    z-index: 3;
+}
+
+.normal_b {
+    z-index: 4;
+}
+
+button {
+    border: none;
+    background: transparent;
+}
+
+.slow {
+    position: relative;
+    top: -650px;
+    right: -35px;
+    z-index: 3;
+}
+
+.slow_b {
+    z-index: 4;
+}
+
+.fast {
+    position: relative;
+    top: -694px;
+    right: -215px;
+    z-index: 3;
+}
+
+.fast_b {
+    z-index: 4;
+}
+
+.select_ {
+    position: relative;
+    top: -624px;
+    right: -115px;
+    z-index: 3;
+}
