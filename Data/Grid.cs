@@ -19,10 +19,6 @@ namespace Tetris {
             this.column = column;
             finallyGrid = new int[row, column];
         }
-        // public Grid buildGrid() {
-        //     finallyGrid = new int[row, column];
-        //     return finallyGrid;
-        // }
 
 
     }
