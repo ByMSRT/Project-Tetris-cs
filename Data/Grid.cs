@@ -6,6 +6,7 @@ namespace Project_Tetris_cs.Data {
 
         public int column {get; set;}
 
+        // Tableau à double dimension
         public int[,] finallyGrid;
 
         // Construction de la grille finale 
