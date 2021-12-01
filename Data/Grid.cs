@@ -11,9 +11,9 @@ namespace Project_Tetris_cs.Data {
 
         // Construction de la grille finale 
 
-        public Grid() {
+        /* public Grid() {
             finallyGrid = new int[row, column];
-        }
+        } */
 
         public Grid(int row, int column) {
             this.row = row;
