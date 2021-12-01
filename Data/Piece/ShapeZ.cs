@@ -1,6 +1,6 @@
 using System;
 
-namespace Tetris.Shape {
+namespace Project_Tetris_cs.Data.Piece {
 
     public class Biais {
 
