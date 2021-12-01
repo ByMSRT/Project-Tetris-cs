@@ -1,0 +1,58 @@
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone_outline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone {
+    height: 750px;
+    width: 750px;
+    z-index: 2;
+}
+
+.background {
+    position: relative;
+    top: -726px;
+    right: -34px;
+}
+
+.background_b {
+    height: 710px;
+    width: 350px;
+    border-radius: 37px;
+}
+
+.tetris_button {
+    position: relative;
+    top: -620px;
+    left: 100px;
+    z-index: 4;
+}
+
+.back {
+    position: relative;
+    top: -1900px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+.test {
+    position: relative;
+    color: white;
+    bottom: 600px;
+    left: 23px;
+}
+
+.student_text {
+    position: relative;
+    right: 117px;
+    color: white;
+    font-size: 12px;
+}

@@ -1,0 +1,54 @@
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone_outline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone {
+    height: 750px;
+    width: 750px;
+    z-index: 2;
+}
+
+.background {
+    position: relative;
+    top: -726px;
+    right: 3px;
+}
+
+.background_b {
+    height: 710px;
+    width: 350px;
+    border-radius: 37px;
+}
+
+.back {
+    position: relative;
+    top: -1380px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+.grid {
+    color: red;
+}
+
+.row {
+    position: relative;
+    top: -1450px;
+    left: -2px;
+}
+
+.td {
+    height: 30px;
+    width: 30px;
+    background-color: rgba(128, 128, 128, 0.397);
+    border: 1px solid black;
+}
