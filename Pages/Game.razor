@@ -6,7 +6,17 @@
 @code {
     Grid grid = new Grid(20, 10);
 
-    Tetris tetrisPiece = new Tetris();
+    Tetris tetrisPiece;
+
+    @* public object[] arrayOfPiece;  *@
+
+    public void GetPiece() {
+        tetrisPiece = new Tetris();
+        Random randomPiece = new Random();
+        int pieceId = randomPiece.Next(0, tetrisPiece.allPiece.Length);
+        
+        Console.WriteLine(tetrisPiece.letterJ.shape)
+    }
 
 }
 
@@ -25,7 +35,7 @@
                     <div class="tetris-row">
                         @for (int j = 1; j <= grid.column; j++)
                         {
-                            <td class="td"></td>
+                            <td class="td">@tetrisPiece.allPiece.</td>
                             
                         }
                     </div>
