@@ -36,10 +36,6 @@
     z-index: 10;
 }
 
-/* .grid {
-    color: red;
-} */
-
 .grid {
     position: relative;
     top: -660px;
