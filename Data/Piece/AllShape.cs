@@ -6,6 +6,7 @@ namespace Project_Tetris_cs.Data.Piece {
             return shape;
         }
 
-        public AllShape() {}
+        public AllShape() {
+        }
     }
 }

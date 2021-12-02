@@ -31,6 +31,10 @@ namespace Project_Tetris_cs.Data {
         Biais letterZ = new Biais();
         public Tetris() {
             allPiece = new object[7] {line, letterJ, letterL, block, letterS, letterT, letterZ};
+            // foreach(int i in line.shape) {
+            //     Console.WriteLine(i);
+            // }
         }
+        
     }
 }
