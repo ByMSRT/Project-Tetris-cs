@@ -20,7 +20,5 @@ namespace Project_Tetris_cs.Data {
             this.column = column;
             finallyGrid = new int[row, column];
         }
-
-
     }
 }
