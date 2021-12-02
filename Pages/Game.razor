@@ -6,16 +6,57 @@
 @code {
     Grid grid = new Grid(20, 10);
 
-    Tetris tetrisPiece;
+    Tetris tetrisPiece = new Tetris();
 
-    @* public object[] arrayOfPiece;  *@
+    @* string testResult; *@
 
-    public void GetPiece() {
-        tetrisPiece = new Tetris();
-        Random randomPiece = new Random();
-        int pieceId = randomPiece.Next(0, tetrisPiece.allPiece.Length);
+    public int placePiece() {
+    
+        @* grid.finallyGrid[indexRow, 2] = 0 ; *@
+        @* for (int row = 1; row <= grid.row; row++) {
+            for (int column = 1; column <= grid.column; column++) {
+                grid.finallyGrid[row, column] = 0 ;
+                    
+            }
+        } *@
+        return grid.finallyGrid.Length;
+        @* int testResult = 1;
+        for (int index = 0; index <= indexRow; index++) {
+            for (int index2 = 0; index2 <= indexColumn; index2++) {
+                if (grid.finallyGrid[index, index2] == 0) {
+                    testResult = 0;
+                }
+            }
+        }
+        return testResult; *@
+        @* string testResult; *@
+        @* int[,] test = tetrisPiece.block.shape;
+        int[,] testGrid = grid.finallyGrid; *@
+        @* for (int index = 0; index <= grid.row; index++) {
+            for (int index2 = 0; index2 <= grid.column; index2++) {
+                if (test[1,1] == testGrid[20, 1] && test[1, 2] == testGrid[20, 2]) {
+                    testResult = 1;
+                }
+            }
+        } *@
+        @* foreach(int index in test) {
+            Console.Write(index);
+        } *@
         
-        Console.WriteLine(tetrisPiece.allPiece.);
+        @* Console.WriteLine(indexRow); 
+        @*Console.Write(indexColumn); *@
+        @* Console.WriteLine(grid.finallyGrid[indexRow,indexColumn]);
+        if (indexRow > 0 && indexRow <= 20 && indexColumn > 0 && indexColumn <= 10) {
+            return 0;
+            @* if (grid.finallyGrid[indexRow,indexColumn] == 0) {
+                return 0;
+            } else {
+                return 1;
+            } 
+        } else {
+            return 2;
+        } *@
+
     }
 
 }
@@ -30,12 +71,13 @@
         <img class="background_b" src="/img/background.png">
         <div class="grid">
             <div class="tetris-container" tabindex="0">
-                @for (int i = grid.row; i >= 1; i--)
+                @for (int indexRow = grid.row; indexRow >= 1; indexRow--)
                 {
                     <div class="tetris-row">
-                        @for (int j = 1; j <= grid.column; j++)
+                        @for (int indexColumn = grid.column; indexColumn >= 1; indexColumn--)
                         {
-                            <td class="td">@tetrisPiece.allPiece.</td>
+
+                            <td class="td">@placePiece()</td>
                             
                         }
                     </div>

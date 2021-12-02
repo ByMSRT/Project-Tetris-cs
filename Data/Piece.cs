@@ -14,7 +14,6 @@ namespace Project_Tetris_cs.Data {
         public LetterT letterT = new LetterT();
         public Biais letterZ = new Biais();
         public Tetris() {
-            int[,,] allPiece = new int[,,]{
             //     new int[,] {line.shape},
             //     new int[][,] {letterJ.shape};
             //     new int[][,] {letterL.shape};
