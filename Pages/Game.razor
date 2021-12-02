@@ -5,6 +5,7 @@
 @code {
     Grid grid = new Grid(20, 10);
 
+    Carre Cube = new Carre();
 }
 
 <div class="title">
@@ -22,7 +23,8 @@
                     <div class="tetris-row">
                         @for (int j = 1; j <= grid.column; j++)
                         {
-                            <td class="td" ></td> 
+                            <td class="td">@Cube.O</td>
+                            
                         }
                     </div>
                 }
