@@ -5,7 +5,7 @@ namespace Project_Tetris_cs.Data {
 
     public class Tetris {
 
-        public object[] allPiece {get;set;}
+        // public int[][,] allPiece;
         public Barre line = new Barre();
         public Gamma letterJ = new Gamma();
         public LetterL letterL = new LetterL();
@@ -14,7 +14,12 @@ namespace Project_Tetris_cs.Data {
         public LetterT letterT = new LetterT();
         public Biais letterZ = new Biais();
         public Tetris() {
-            allPiece = new object[7] {line, letterJ, letterL, block, letterS, letterT, letterZ};
+            int[,,] allPiece = new int[,,]{
+            //     new int[,] {line.shape},
+            //     new int[][,] {letterJ.shape};
+            //     new int[][,] {letterL.shape};
+            //     new int[][,] {block.shape}
+            // };
             // foreach(int i in line.shape) {
             //     Console.WriteLine(i);
             // }

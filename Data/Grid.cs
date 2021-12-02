@@ -10,11 +10,6 @@ namespace Project_Tetris_cs.Data {
         public int[,] finallyGrid;
 
         // Construction de la grille finale 
-
-        /* public Grid() {
-            finallyGrid = new int[row, column];
-        } */
-
         public Grid(int row, int column) {
             this.row = row;
             this.column = column;
