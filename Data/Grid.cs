@@ -14,6 +14,5 @@ namespace Project_Tetris_cs.Data {
             finallyGrid = new int[row, column];
         }
 
-
     }
 }

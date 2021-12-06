@@ -24,17 +24,26 @@
             <img class="grid_b" src="/img/Grid.png">
         </div>
         <div class="select_">
-            <select name="height">
-                <option value="baseH">20</option>
-                <option value="">Other</option>
-                <option value="">Other</option>
+            <select name="height" onchange="">
+                <option value="baseH">@getHeight[0]</option>
+                <option value="valueH1">@getHeight[1]</option>
+                <option value="valueH2">@getHeight[2]</option>
+                <option value="valueH3">@getHeight[3]</option>
             </select>
-            <select name="width">
-                <option value="baseW">10</option>
-                <option value="">Other</option>
-                <option value="">Other</option>
+            <select name="width" onchange="">
+                <option value="baseW">@getWidth[0]</option>
+                <option value="valueW1">@getWidth[1]</option>
+                <option value="valueW2">@getWidth[2]</option>
+                <option value="valueW3">@getWidth[3]</option>
+                <option value="valueW4">@getWidth[4]</option>
             </select>
         </div>
     </div>
         <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 </div>
+
+@code {
+
+    public int[] getWidth = new int[] {10, 9, 8, 7, 6};
+    public int[] getHeight = new int[] {20, 15, 10, 5};
+}
