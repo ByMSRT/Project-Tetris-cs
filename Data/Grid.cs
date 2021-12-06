@@ -3,6 +3,7 @@ using Project_Tetris_cs.Data.Piece;
 
 namespace Project_Tetris_cs.Data {
     public class Grid {
+        private int cell = 1;
         public int row {get; set;}
 
         public int column {get; set;}
@@ -15,6 +16,19 @@ namespace Project_Tetris_cs.Data {
             this.row = row;
             this.column = column;
             this.finallyGrid = new int[row, column];
+            for (int indexRow = 0; indexRow < row; indexRow++) {
+                for (int indexColumn = 0; indexColumn < column; indexColumn++) {
+                    finallyGrid[indexRow, indexColumn] = cell;
+                    cell++;
+                }
+            }
+        
+            // for (int indexRow = 1; indexRow <= row; indexRow++) {
+            //     for (int indexColumn = 1; indexColumn <= column; indexColumn++) {
+            //         finallyGrid[indexRow, indexColumn] = cell;
+            //         cell++;
+            //     }
+            // }
             // for (int index = 1; index <= row; index++) {
             //     for (int index2 = 1; index2 <= column; index2++) {
             //         finallyGrid[index] = new int[index2];
@@ -33,6 +47,15 @@ namespace Project_Tetris_cs.Data {
             // Console.WriteLine(finallyGrid);
 
         }
+
+        // public void valueForGrid(){
+        //     for (int indexRow = 0; indexRow < row; indexRow++) {
+        //         for (int indexColumn = 0; indexColumn < column; indexColumn++) {
+        //             finallyGrid[indexRow, indexColumn] = cell;
+        //             cell++;
+        //         }
+        //     }
+        // }
 
         
 

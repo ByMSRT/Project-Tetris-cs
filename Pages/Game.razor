@@ -11,52 +11,10 @@
     @* string testResult; *@
 
     public int placePiece() {
-    
-        @* grid.finallyGrid[indexRow, 2] = 0 ; *@
-        @* for (int row = 1; row <= grid.row; row++) {
-            for (int column = 1; column <= grid.column; column++) {
-                grid.finallyGrid[row, column] = 0 ;
-                    
-            }
-        } *@
+        Console.WriteLine(grid.finallyGrid[5, 6]);
+        Console.WriteLine(grid.finallyGrid[5, 7]);
+        Console.WriteLine(grid.finallyGrid[19, 9]);
         return grid.finallyGrid.Length;
-        @* int testResult = 1;
-        for (int index = 0; index <= indexRow; index++) {
-            for (int index2 = 0; index2 <= indexColumn; index2++) {
-                if (grid.finallyGrid[index, index2] == 0) {
-                    testResult = 0;
-                }
-            }
-        }
-        return testResult; *@
-        @* string testResult; *@
-        @* int[,] test = tetrisPiece.block.shape;
-        int[,] testGrid = grid.finallyGrid; *@
-        @* for (int index = 0; index <= grid.row; index++) {
-            for (int index2 = 0; index2 <= grid.column; index2++) {
-                if (test[1,1] == testGrid[20, 1] && test[1, 2] == testGrid[20, 2]) {
-                    testResult = 1;
-                }
-            }
-        } *@
-        @* foreach(int index in test) {
-            Console.Write(index);
-        } *@
-        
-        @* Console.WriteLine(indexRow); 
-        @*Console.Write(indexColumn); *@
-        @* Console.WriteLine(grid.finallyGrid[indexRow,indexColumn]);
-        if (indexRow > 0 && indexRow <= 20 && indexColumn > 0 && indexColumn <= 10) {
-            return 0;
-            @* if (grid.finallyGrid[indexRow,indexColumn] == 0) {
-                return 0;
-            } else {
-                return 1;
-            } 
-        } else {
-            return 2;
-        } *@
-
     }
 
 }
@@ -71,13 +29,13 @@
         <img class="background_b" src="/img/background.png">
         <div class="grid">
             <div class="tetris-container" tabindex="0">
-                @for (int indexRow = grid.row; indexRow >= 1; indexRow--)
+                @for (int indexRow = grid.row-1; indexRow >= 0; indexRow--)
                 {
                     <div class="tetris-row">
-                        @for (int indexColumn = grid.column; indexColumn >= 1; indexColumn--)
+                        @for (int indexColumn = 0; indexColumn < grid.column; indexColumn++)
                         {
 
-                            <td class="td">@placePiece()</td>
+                            <td class="td">@grid.finallyGrid[indexRow, indexColumn]</td>
                             
                         }
                     </div>
