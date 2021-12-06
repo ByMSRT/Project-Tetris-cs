@@ -2,10 +2,10 @@ using System;
 
 namespace Project_Tetris_cs.Data.Piece {
 
-    public class ReverseBiais {
-
-        public int[,] S = new int[,] {{19, 0},{19, 1},{20, 1},{20, 2}};
-        
+    public class ReverseBiais : AllShape {
+        public ReverseBiais() : base() {
+            this.shape = new int[] {190, 189, 199, 198};
+        }
     }
     
 }

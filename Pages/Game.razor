@@ -1,11 +1,28 @@
 @page "/game"
+@using System;
 @using Project_Tetris_cs.Data;
 @using Project_Tetris_cs.Data.Piece;
 
 @code {
     Grid grid = new Grid(20, 10);
 
-    Carre Cube = new Carre();
+    Tetris tetrisPiece = new Tetris();
+
+
+
+    @* string testResult; *@
+
+    public bool placePiece(int indexRow, int indexColumn) {
+        bool result = false;
+        for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
+            if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
+                result = true;;
+            }
+        
+        }
+        return result;
+    }
+
 }
 
 <div class="title">
@@ -18,13 +35,16 @@
         <img class="background_b" src="/img/background.png">
         <div class="grid">
             <div class="tetris-container" tabindex="0">
-                @for (int i = grid.row; i >= 1; i--)
+                @for (int indexRow = grid.row-1; indexRow >= 0; indexRow--)
                 {
                     <div class="tetris-row">
-                        @for (int j = 1; j <= grid.column; j++)
+                        @for (int indexColumn = 0; indexColumn < grid.column; indexColumn++)
                         {
-                            <td class="td">@Cube.O</td>
-                            
+                            @if (placePiece(indexRow, indexColumn)) {
+                                <td class="tetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                            } else {
+                                <td class="notetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                            }
                         }
                     </div>
                 }
