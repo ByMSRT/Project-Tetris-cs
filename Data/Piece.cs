@@ -25,7 +25,7 @@ namespace Project_Tetris_cs.Data {
         }
 
         public void getRandomPiece() {
-            var arrayOfShape = new [] {line, letterJ, letterL, block, letterS, letterT, letterZ};
+            var arrayOfShape = new AllShape[] {line, letterJ, letterL, block, letterS, letterT, letterZ};
         }
         
     }
