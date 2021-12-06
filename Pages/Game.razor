@@ -8,13 +8,19 @@
 
     Tetris tetrisPiece = new Tetris();
 
+
+
     @* string testResult; *@
 
-    public int placePiece() {
-        Console.WriteLine(grid.finallyGrid[5, 6]);
-        Console.WriteLine(grid.finallyGrid[5, 7]);
-        Console.WriteLine(grid.finallyGrid[19, 9]);
-        return grid.finallyGrid.Length;
+    public bool placePiece(int indexRow, int indexColumn) {
+        bool result = false;
+        for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
+            if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
+                result = true;;
+            }
+        
+        }
+        return result;
     }
 
 }
@@ -34,9 +40,11 @@
                     <div class="tetris-row">
                         @for (int indexColumn = 0; indexColumn < grid.column; indexColumn++)
                         {
-
-                            <td class="td">@grid.finallyGrid[indexRow, indexColumn]</td>
-                            
+                            @if (placePiece(indexRow, indexColumn)) {
+                                <td class="tetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                            } else {
+                                <td class="notetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                            }
                         }
                     </div>
                 }

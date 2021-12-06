@@ -46,9 +46,16 @@
     left: 24px;
 }
 
-.td {
+.notetromino {
     height: 30px;
     width: 30px;
     background-color: rgba(128, 128, 128, 0.397);
+    border: 1px solid black;
+}
+
+.tetromino {
+    height: 30px;
+    width: 30px;
+    background-color: red;
     border: 1px solid black;
 }
