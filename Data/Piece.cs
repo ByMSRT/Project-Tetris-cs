@@ -23,6 +23,10 @@ namespace Project_Tetris_cs.Data {
             //     Console.WriteLine(i);
             // }
         }
+
+        public void getRandomPiece() {
+            var arrayOfShape = new [] {line, letterJ, letterL, block, letterS, letterT, letterZ};
+        }
         
     }
 }
