@@ -4,17 +4,16 @@ namespace Project_Tetris_cs.Data.Piece {
     public class AllShape {
         public int[] shape {get; set;}
 
-        // private Timer timerToMoveShape = new Timer(1500);
+        private int[] border;
+
         public AllShape() {}
 
-        // public void movePieceDownTimer() {
-        //     if (timerToMoveShape.Enabled) {
-        //         return;
-        //     }
-        //     timerToMoveShape.Elapsed += movePieceDown;
-        //     timerToMoveShape.AutoReset = true;
-        //     timerToMoveShape.Enabled = true;
-        // }
+        public int[] completeBorder(int minimum, int maximum) {
+            for (int index = minimum; index <= maximum; index++) {
+                border[index-1] = index + 10;
+            }
+            return border;
+        }
 
         public void movePieceDown() {
             // Boucle en arrière pour conditions après car shape dans l'ordre décroissant
@@ -31,10 +30,11 @@ namespace Project_Tetris_cs.Data.Piece {
             // Boucle en arrière pour conditions après car shape dans l'ordre décroissant
             for (int index = this.shape.Length-1; index >= 0; index--) {
                 if (this.shape[index] >= 10 && this.shape[index] <= 200) {
-                    if (this.shape[index] >= 191 && this.shape[index] >= 181){
-                        this.shape[index] -= 1;
+                    if ((this.shape[index]-1) % 10 == 0) {
+                        break;
+                    } else {
+                        this.shape[index]--;
                     }
-                    
                 } else {
                     break;
                 }          
@@ -43,9 +43,13 @@ namespace Project_Tetris_cs.Data.Piece {
 
         public void movePieceRight() {
             // Boucle en arrière pour conditions après car shape dans l'ordre décroissant
-            for (int index = this.shape.Length-1; index >= 0; index--) {
+            for (int index = 0; index < this.shape.Length; index++) {
                 if (this.shape[index] >= 10 && this.shape[index] <= 200) {
-                        this.shape[index] += 1;
+                    if (this.shape[index] % 10 == 0) {
+                        break;
+                    } else {
+                        this.shape[index]++;
+                    }
                 } else {
                     break;
                 }          

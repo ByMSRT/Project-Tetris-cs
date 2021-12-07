@@ -44,7 +44,7 @@
     z-index: 10;
 }
 
-.gauche {
+.left {
     position: relative;
     top: -1880px;
     right: 260px;
@@ -52,7 +52,7 @@
     z-index: 10;
 }
 
-.droite {
+.right {
     position: relative;
     top: -1880px;
     right: 260px;
