@@ -36,6 +36,31 @@
     z-index: 10;
 }
 
+.down {
+    position: relative;
+    top: -1880px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+.left {
+    position: relative;
+    top: -1880px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+.right {
+    position: relative;
+    top: -1880px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+
 /* .grid {
     color: red;
 } */
