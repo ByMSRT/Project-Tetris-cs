@@ -4,17 +4,16 @@ namespace Project_Tetris_cs.Data.Piece {
     public class AllShape {
         public int[] shape {get; set;}
 
-        private Timer timerToMoveShape = new Timer();
-
-
+        // private Timer timerToMoveShape = new Timer(1500);
         public AllShape() {}
 
         // public void movePieceDownTimer() {
-        //     timerToMoveShape.Interval = 1000;
-        //     timerToMoveShape.Elapsed +=  new ElapsedEventHandler(movePieceDown);
+        //     if (timerToMoveShape.Enabled) {
+        //         return;
+        //     }
+        //     timerToMoveShape.Elapsed += movePieceDown;
         //     timerToMoveShape.AutoReset = true;
         //     timerToMoveShape.Enabled = true;
-        //     timerToMoveShape.Start();
         // }
 
         public void movePieceDown() {
@@ -24,7 +23,7 @@ namespace Project_Tetris_cs.Data.Piece {
                     this.shape[index] -= 10;
                 } else {
                     break;
-                }          
+                } 
             }
         }
 

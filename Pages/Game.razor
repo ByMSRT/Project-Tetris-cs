@@ -1,26 +1,34 @@
 @page "/game"
 @using System;
+@using System.Timers;
 @using Project_Tetris_cs.Data;
 @using Project_Tetris_cs.Data.Piece;
 
 @code {
+    private bool dirty = false;
     Grid grid = new Grid(20, 10);
-
     Tetris tetrisPiece = new Tetris();
-
-
+    private Timer timerToMoveShape = new Timer(1500);
     public bool placePiece(int indexRow, int indexColumn) {
         bool result = false;
         for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
             if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
                 result = true;
             }
-        
         }
         return result;
     }
 
-
+    public async void movePieceDownAsync() {
+        @* Boucle infini *@
+        while (true) {
+            tetrisPiece.block.movePieceDown();
+            @* StateHasChanged notifie le composant que son état a changé. *@
+            this.StateHasChanged();
+            @* Task.Delay fait office de timer *@
+            await Task.Delay(1500);
+        }
+    }
 }
 
 <div class="title">
@@ -50,9 +58,12 @@
             
         </div>
     </div>
+
     <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" class="down">Down</button>
     <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" class="gauche">Gauche</button>
     <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" class="droite">Droite</button>
+    <button type="submit" @onclick="@movePieceDownAsync" class="down">Jouer</button>
+
     <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 
     <div class="row">
