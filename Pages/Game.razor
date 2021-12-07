@@ -9,19 +9,17 @@
     Tetris tetrisPiece = new Tetris();
 
 
-
-    @* string testResult; *@
-
     public bool placePiece(int indexRow, int indexColumn) {
         bool result = false;
         for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
             if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
-                result = true;;
+                result = true;
             }
         
         }
         return result;
     }
+
 
 }
 
@@ -52,6 +50,7 @@
             
         </div>
     </div>
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" class="down">Down</button>
     <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 
     <div class="row">
