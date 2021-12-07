@@ -19,7 +19,14 @@
         return result;
     }
 
+    bool IsGameRunning = false;
+    bool verifyButton = true;
     public async void movePieceDownAsync() {
+        IsGameRunning = true;
+        verifyButton = false;
+        await OnButtonClicked();
+        
+        StateHasChanged();
         @* Boucle infini *@
         while (true) {
             tetrisPiece.block.movePieceDown();
@@ -28,6 +35,10 @@
             @* Task.Delay fait office de timer *@
             await Task.Delay(1500);
         }
+    }
+    
+    Task OnButtonClicked() {
+        return Task.Delay(0);
     }
 }
 
@@ -59,9 +70,11 @@
         </div>
     </div>
 
-    <button type="submit" @onclick="@movePieceDownAsync" class="down">Jouer</button>
-    <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" class="left">Gauche</button>
-    <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" class="right">Droite</button>
+    <button type="submit" @onclick="@movePieceDownAsync" disabled=@IsGameRunning class="play"><img src="https://img.icons8.com/ios-filled/50/000000/play--v1.png"/></button>
+    @* <button type="submit" @onclick="@movePieceDownAsync" disabled=@IsPause class="pause"><img src="https://img.icons8.com/ios-filled/50/000000/pause--v1.png"/></button> *@
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" disabled=@verifyButton class="left"><img src="https://img.icons8.com/ios-filled/50/000000/left.png"/></button>
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" disabled=@verifyButton class="right"><img src="https://img.icons8.com/ios-filled/50/000000/right--v1.png"/></button>
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" disabled=@verifyButton class="down"><img src="https://img.icons8.com/ios-filled/50/000000/down--v2.png"/></button>
 
     <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 
