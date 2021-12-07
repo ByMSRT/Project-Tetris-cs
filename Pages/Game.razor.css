@@ -44,6 +44,23 @@
     z-index: 10;
 }
 
+.gauche {
+    position: relative;
+    top: -1880px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+.droite {
+    position: relative;
+    top: -1880px;
+    right: 260px;
+    height: 90px;
+    z-index: 10;
+}
+
+
 /* .grid {
     color: red;
 } */
