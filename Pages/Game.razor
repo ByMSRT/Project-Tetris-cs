@@ -58,7 +58,12 @@
             
         </div>
     </div>
+
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" class="down">Down</button>
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" class="gauche">Gauche</button>
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" class="droite">Droite</button>
     <button type="submit" @onclick="@movePieceDownAsync" class="down">Jouer</button>
+
     <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 
     <div class="row">
