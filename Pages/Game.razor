@@ -14,14 +14,20 @@
 
     public bool placePiece(int indexRow, int indexColumn) {
         bool result = false;
-        for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
-            if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
-                result = true;;
+        var piece = tetrisPiece.getRandomPiece();
+        for (int indexshape = 0; indexshape < piece.shape.Length; indexshape++) {
+            if (grid.finallyGrid[indexRow, indexColumn] == piece.shape[indexshape]) {
+                result = true;
             }
         
         }
         return result;
     }
+
+@*     public int test() {
+        tetrisPiece.getRandomPiece();
+        return 0;
+    } *@
 
 }
 
@@ -33,9 +39,10 @@
     <img class="phone" src="/img/iphone_x.png">
     <div class="background">
         <img class="background_b" src="/img/background.png">
-        <div class="grid">
+        <div class="grid"> 
+@*             @test(); *@
             <div class="tetris-container" tabindex="0">
-                @for (int indexRow = grid.row-1; indexRow >= 0; indexRow--)
+                @for (int indexRow = grid.row - 1; indexRow >= 0; indexRow--)
                 {
                     <div class="tetris-row">
                         @for (int indexColumn = 0; indexColumn < grid.column; indexColumn++)

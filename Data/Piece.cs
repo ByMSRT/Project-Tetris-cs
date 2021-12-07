@@ -24,8 +24,14 @@ namespace Project_Tetris_cs.Data {
             // }
         }
 
-        public void getRandomPiece() {
+        private Random rnd = new Random();
+        public AllShape getRandomPiece() {
             var arrayOfShape = new AllShape[] {line, letterJ, letterL, block, letterS, letterT, letterZ};
+            int index = rnd.Next(arrayOfShape.Length);
+            /* foreach(int test in arrayOfShape[index].shape) {
+                Console.WriteLine(test);
+            } */
+            return arrayOfShape[index];
         }
         
     }
