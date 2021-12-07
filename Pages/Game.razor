@@ -9,20 +9,11 @@
     Tetris tetrisPiece = new Tetris();
 
 
-
-    @* string testResult; *@
-
     public bool placePiece(int indexRow, int indexColumn) {
-        @* bool resultMoveDownPiece = tetrisPiece.block.movePieceDown(); *@
         bool result = false;
         for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
             if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
-                @* if (resultMoveDownPiece == true) {
-                    grid.finallyGrid[indexRow, indexColumn] += 10;
-                } *@
-                @* tetrisPiece.block.movePieceDownTimer(); *@
                 result = true;
-                @* tetrisPiece.block.movePieceDownTimer(); *@
             }
         
         }
