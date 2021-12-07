@@ -78,9 +78,51 @@
     border: 1px solid black;
 }
 
-.tetromino {
+.tetrominoBlock {
+    height: 30px;
+    width: 30px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+.tetrominoLetterJ {
+    height: 30px;
+    width: 30px;
+    background-color: blue;
+    border: 1px solid black;
+}
+
+.tetrominoLetterL {
+    height: 30px;
+    width: 30px;
+    background-color: orange;
+    border: 1px solid black;
+}
+
+.tetrominoLetterS {
+    height: 30px;
+    width: 30px;
+    background-color: green;
+    border: 1px solid black;
+}
+
+.tetrominoLetterT {
+    height: 30px;
+    width: 30px;
+    background-color: purple;
+    border: 1px solid black;
+}
+
+.tetrominoLetterZ {
     height: 30px;
     width: 30px;
     background-color: red;
+    border: 1px solid black;
+}
+
+.tetrominoLine {
+    height: 30px;
+    width: 30px;
+    background-color: cyan;
     border: 1px solid black;
 }

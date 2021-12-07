@@ -5,16 +5,27 @@
 @using Project_Tetris_cs.Data.Piece;
 
 @code {
-    private bool dirty = false;
+
     Grid grid = new Grid(20, 10);
+
     Tetris tetrisPiece = new Tetris();
-    private Timer timerToMoveShape = new Timer(1500);
+
+    private static Random rnd = new Random();
+
+    public AllShape getRandomPiece() {
+        tetrisPiece.arrayOfShape = new AllShape[]{tetrisPiece.block, tetrisPiece.letterJ, tetrisPiece.letterL, tetrisPiece.letterS, tetrisPiece.letterT, tetrisPiece.letterZ, tetrisPiece.line};
+        return tetrisPiece.arrayOfShape[rnd.Next(tetrisPiece.arrayOfShape.Length)];
+    }
+
     public bool placePiece(int indexRow, int indexColumn) {
+        AllShape piece = getRandomPiece();
         bool result = false;
-        for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
-            if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
+        for (int indexshape = 0; indexshape < piece.shape.Length; indexshape++) {
+            if (grid.finallyGrid[indexRow, indexColumn] == piece.shape[indexshape]) {
                 result = true;
+                Console.WriteLine(piece.shape[indexshape]);
             }
+            
         }
         return result;
     }
@@ -40,7 +51,6 @@
     <div class="background">
         <img class="background_b" src="/img/background.png">
         <div class="grid"> 
-@*             @test(); *@
             <div class="tetris-container" tabindex="0">
                 @for (int indexRow = grid.row - 1; indexRow >= 0; indexRow--)
                 {
@@ -48,7 +58,23 @@
                         @for (int indexColumn = 0; indexColumn < grid.column; indexColumn++)
                         {
                             @if (placePiece(indexRow, indexColumn)) {
-                                <td class="tetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                @if (getRandomPiece() == tetrisPiece.block) {
+                                    <td class="tetrominoBlock">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                } else if (getRandomPiece() == tetrisPiece.letterJ) {
+                                    <td class="tetrominoLetterJ">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                } else if (getRandomPiece() == tetrisPiece.letterL) {
+                                    <td class="tetrominoLetterL">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                } else if (getRandomPiece() == tetrisPiece.letterS) {
+                                    <td class="tetrominoLetterS">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                } else if (getRandomPiece() == tetrisPiece.letterT) {
+                                    <td class="tetrominoLetterT">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                } else if (getRandomPiece() == tetrisPiece.letterZ) {
+                                    <td class="tetrominoLetterZ">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                } else if (getRandomPiece() == tetrisPiece.line) {
+                                    <td class="tetrominoLine">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                } else {
+                                    <td class="notetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                }
                             } else {
                                 <td class="notetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
                             }

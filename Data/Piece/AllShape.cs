@@ -4,16 +4,7 @@ namespace Project_Tetris_cs.Data.Piece {
     public class AllShape {
         public int[] shape {get; set;}
 
-        private int[] border;
-
         public AllShape() {}
-
-        public int[] completeBorder(int minimum, int maximum) {
-            for (int index = minimum; index <= maximum; index++) {
-                border[index-1] = index + 10;
-            }
-            return border;
-        }
 
         public void movePieceDown() {
             // Boucle en arrière pour conditions après car shape dans l'ordre décroissant
