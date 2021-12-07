@@ -16,12 +16,15 @@
         bool result = false;
         for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
             if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
-                result = true;;
+                @* tetrisPiece.block.movePieceDownTimer(); *@
+                result = true;
+                @* tetrisPiece.block.movePieceDownTimer(); *@
             }
         
         }
         return result;
     }
+
 
 }
 
@@ -52,6 +55,7 @@
             
         </div>
     </div>
+    <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" class="down">Down</button>
     <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 
     <div class="row">
