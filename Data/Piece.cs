@@ -1,5 +1,3 @@
-using System;
-using System.Timers;
 using Project_Tetris_cs.Data.Piece;
 
 namespace Project_Tetris_cs.Data {
