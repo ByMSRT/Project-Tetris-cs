@@ -41,7 +41,7 @@
         var token = tokenSource.Token;
         @* Boucle infini *@
         while (true) {
-            if (IsPause == false) {
+            if (!IsPause) {
                 tetrisPiece.block.movePieceDown();
                 @* StateHasChanged notifie le composant que son état a changé. *@
                 this.StateHasChanged();
