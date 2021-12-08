@@ -1,5 +1,3 @@
-using System;
-using Project_Tetris_cs.Data.Piece;
 
 namespace Project_Tetris_cs.Data {
     public class Grid {
