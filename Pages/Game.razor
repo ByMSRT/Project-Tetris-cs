@@ -3,12 +3,14 @@
 @using System.Timers;
 @using Project_Tetris_cs.Data;
 @using Project_Tetris_cs.Data.Piece;
+@using System.Collections.Concurrent;
+@using System.Threading;
+@using System.Threading.Tasks;
 
 @code {
     private bool dirty = false;
     Grid grid = new Grid(20, 10);
     Tetris tetrisPiece = new Tetris();
-    private Timer timerToMoveShape = new Timer(1500);
     public bool placePiece(int indexRow, int indexColumn) {
         bool result = false;
         for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
@@ -20,22 +22,41 @@
     }
 
     bool IsGameRunning = false;
+    bool IsPause = false;
     bool verifyButton = true;
+
+    public async void gameIsPause(){
+        IsPause = true;
+        await OnButtonClicked();
+        StateHasChanged();
+    }
     public async void movePieceDownAsync() {
         IsGameRunning = true;
+        IsPause = false;
         verifyButton = false;
         await OnButtonClicked();
         
         StateHasChanged();
+
+        var tokenSource = new CancellationTokenSource();
+        var token = tokenSource.Token;
         @* Boucle infini *@
         while (true) {
-            tetrisPiece.block.movePieceDown();
-            @* StateHasChanged notifie le composant que son état a changé. *@
-            this.StateHasChanged();
-            @* Task.Delay fait office de timer *@
-            await Task.Delay(1500);
+            if (IsPause == false) {
+                tetrisPiece.block.movePieceDown();
+                @* StateHasChanged notifie le composant que son état a changé. *@
+                this.StateHasChanged();
+                @* Task.Delay fait office de timer *@
+                await Task.Delay(1500);
+            } else {
+                IsGameRunning = false;
+                StateHasChanged();
+                tokenSource.Cancel();
+                break;
+            }
         }
     }
+
     
     Task OnButtonClicked() {
         return Task.Delay(0);
@@ -71,7 +92,7 @@
     </div>
 
     <button type="submit" @onclick="@movePieceDownAsync" disabled=@IsGameRunning class="play"><img src="https://img.icons8.com/ios-filled/50/000000/play--v1.png"/></button>
-    @* <button type="submit" @onclick="@movePieceDownAsync" disabled=@IsPause class="pause"><img src="https://img.icons8.com/ios-filled/50/000000/pause--v1.png"/></button> *@
+    <button type="submit" @onclick="@gameIsPause" disabled=@IsPause class="pause"><img src="https://img.icons8.com/ios-filled/50/000000/pause--v1.png"/></button>
     <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" disabled=@verifyButton class="left"><img src="https://img.icons8.com/ios-filled/50/000000/left.png"/></button>
     <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" disabled=@verifyButton class="right"><img src="https://img.icons8.com/ios-filled/50/000000/right--v1.png"/></button>
     <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" disabled=@verifyButton class="down"><img src="https://img.icons8.com/ios-filled/50/000000/down--v2.png"/></button>
