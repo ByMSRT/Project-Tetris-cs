@@ -14,13 +14,13 @@
             <img class="speed_b" src="/img/speed.png">
         </div>
         <div class="normal">
-            <button @onclick="normalSpeedGame"><img class="normal_b" src="/img/Normal.png"></button>
+            <button @onclick="()=>changeSpeedGame(1500)"><img class="normal_b" src="/img/Normal.png"></button>
         </div>
         <div class="slow">
-            <button @onclick="slowSpeedGame"><img class="slow_b" src="/img/slow.png"></button>
+            <button @onclick="()=>changeSpeedGame(2000)"><img class="slow_b" src="/img/slow.png"></button>
         </div>
         <div class="fast">
-            <button @onclick="fastSpeedGame"><img class="fast_b" src="/img/fast.png"></button>
+            <button @onclick="()=>changeSpeedGame(300)"><img class="fast_b" src="/img/fast.png"></button>
         </div>
         <div class="grid">
             <img class="grid_b" src="/img/Grid.png">
@@ -48,17 +48,15 @@
 
     public int[] getWidth = new int[] {10, 9, 8, 7, 6};
     public int[] getHeight = new int[] {20, 15, 10, 5};
-    private void slowSpeedGame(){
-        UriHelper.NavigateTo($"/game/{2000}");
-    }
 
-    private void fastSpeedGame(){
-        UriHelper.NavigateTo($"/game/{300}");
+    private void changeSpeedGame(int speed) {
+        if (speed == 2000){
+            UriHelper.NavigateTo($"/game/{speed}");
+        } else if (speed == 300) {
+            UriHelper.NavigateTo($"/game/{speed}");
+        } else {
+            UriHelper.NavigateTo($"/game/{1500}");
+        }
     }
-
-    private void normalSpeedGame(){
-        UriHelper.NavigateTo($"/game/{1500}");
-    }
-
 
 }

@@ -29,6 +29,19 @@
         await OnButtonClicked();
         StateHasChanged();
     }
+
+    public int verifySpeed() {
+        int speedToVerify = Int32.Parse(Speed);
+        if (speedToVerify == 2000) {
+            return speedToVerify;
+        } else if (speedToVerify == 300) {
+            return speedToVerify;
+        } else {
+            speedToVerify = 1500;
+            return speedToVerify;
+        }
+    }
+
     public async void movePieceDownAsync() {
         IsGameRunning = true;
         IsPause = false;
@@ -45,8 +58,9 @@
                 tetrisPiece.block.movePieceDown();
                 @* StateHasChanged notifie le composant que son état a changé. *@
                 this.StateHasChanged();
+                int finalSpeed = verifySpeed();
                 @* Task.Delay fait office de timer *@
-                await Task.Delay(Int32.Parse(Speed));
+                await Task.Delay(finalSpeed);
             } else {
                 IsGameRunning = false;
                 verifyButton = true;
