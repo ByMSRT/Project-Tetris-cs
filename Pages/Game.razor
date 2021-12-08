@@ -1,8 +1,10 @@
 @page "/game/{Speed}"
 @using System;
 @using Project_Tetris_cs.Data;
+@using Project_Tetris_cs.Data.Piece;
 @using System.Threading;
 @using System.Threading.Tasks;
+
 
 @code {
 
@@ -11,10 +13,12 @@
     private bool dirty = false;
     Grid grid = new Grid(20, 10);
     Tetris tetrisPiece = new Tetris();
+
+
     public bool placePiece(int indexRow, int indexColumn) {
         bool result = false;
-        for (int indexshape = 0; indexshape < tetrisPiece.block.shape.Length; indexshape++) {
-            if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.block.shape[indexshape]) {
+        for (int indexshape = 0; indexshape < tetrisPiece.letterJ.shape.Length; indexshape++) {
+            if (grid.finallyGrid[indexRow, indexColumn] == tetrisPiece.letterJ.shape[indexshape]) {
                 result = true;
             }
         }
@@ -55,7 +59,7 @@
         @* Boucle infini *@
         while (true) {
             if (!IsPause) {
-                tetrisPiece.block.movePieceDown();
+                tetrisPiece.letterJ.movePieceDown();
                 @* StateHasChanged notifie le composant que son état a changé. *@
                 this.StateHasChanged();
                 int finalSpeed = verifySpeed();
@@ -68,6 +72,18 @@
                 tokenSource.Cancel();
                 break;
             }
+        }
+    }
+
+    public void movePiece(AllShape shape,int move) {
+        if (move == 1) {
+            shape.movePieceLeft();
+        } else if (move == 2) {
+            shape.movePieceRight();
+        } else if (move == 3) {
+            shape.movePieceDown();
+        } else {
+            return;
         }
     }
 
@@ -86,9 +102,9 @@
         <div class="button_b">
             <button type="submit" @onclick="@movePieceDownAsync" disabled=@IsGameRunning class="play"><img src="https://img.icons8.com/ios-filled/50/000000/play--v1.png"/></button>
             <button type="submit" @onclick="@gameIsPause" disabled=@IsPause class="pause"><img src="https://img.icons8.com/ios-filled/50/000000/pause--v1.png"/></button>
-            <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" disabled=@verifyButton class="left"><img src="https://img.icons8.com/ios-filled/50/000000/left.png"/></button>
-            <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" disabled=@verifyButton class="right"><img src="https://img.icons8.com/ios-filled/50/000000/right--v1.png"/></button>
-            <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" disabled=@verifyButton class="down"><img src="https://img.icons8.com/ios-filled/50/000000/down--v2.png"/></button>
+            <button type="submit" @onclick="()=>movePiece(tetrisPiece.letterJ,1)" disabled=@verifyButton class="left"><img src="https://img.icons8.com/ios-filled/50/000000/left.png"/></button>
+            <button type="submit" @onclick="()=>movePiece(tetrisPiece.letterJ, 2)" disabled=@verifyButton class="right"><img src="https://img.icons8.com/ios-filled/50/000000/right--v1.png"/></button>
+            <button type="submit" @onclick="()=>movePiece(tetrisPiece.letterJ,3)" disabled=@verifyButton class="down"><img src="https://img.icons8.com/ios-filled/50/000000/down--v2.png"/></button>
         </div>
     </div>
     <img class="phone" src="/img/iphone_x.png">
