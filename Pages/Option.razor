@@ -1,5 +1,14 @@
 @page "/option"
 
+@using System;
+@using System.Timers;
+@using Project_Tetris_cs.Data;
+@using Project_Tetris_cs.Data.Piece;
+@using System.Collections.Concurrent;
+@using System.Threading;
+@using System.Threading.Tasks;
+@inject NavigationManager UriHelper
+
 <div class="title">
     <img src="/img/Tetris_Title.png">
 </div>
@@ -12,29 +21,51 @@
             <img class="speed_b" src="/img/speed.png">
         </div>
         <div class="normal">
-            <button><img class="normal_b" src="/img/Normal.png"></button>
+            <button @onclick="normalSpeedGame"><img class="normal_b" src="/img/Normal.png"></button>
         </div>
         <div class="slow">
-            <button><img class="slow_b" src="/img/slow.png"></button>
+            <button @onclick="slowSpeedGame"><img class="slow_b" src="/img/slow.png"></button>
         </div>
         <div class="fast">
-            <button><img class="fast_b" src="/img/fast.png"></button>
+            <button @onclick="fastSpeedGame"><img class="fast_b" src="/img/fast.png"></button>
         </div>
         <div class="grid">
             <img class="grid_b" src="/img/Grid.png">
         </div>
         <div class="select_">
-            <select name="height">
-                <option value="baseH">20</option>
-                <option value="">Other</option>
-                <option value="">Other</option>
+            <select name="height" onchange="">
+                <option value="baseH">@getHeight[0]</option>
+                <option value="valueH1">@getHeight[1]</option>
+                <option value="valueH2">@getHeight[2]</option>
+                <option value="valueH3">@getHeight[3]</option>
             </select>
-            <select name="width">
-                <option value="baseW">10</option>
-                <option value="">Other</option>
-                <option value="">Other</option>
+            <select name="width" onchange="">
+                <option value="baseW">@getWidth[0]</option>
+                <option value="valueW1">@getWidth[1]</option>
+                <option value="valueW2">@getWidth[2]</option>
+                <option value="valueW3">@getWidth[3]</option>
+                <option value="valueW4">@getWidth[4]</option>
             </select>
         </div>
     </div>
         <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 </div>
+
+@code {
+
+    public int[] getWidth = new int[] {10, 9, 8, 7, 6};
+    public int[] getHeight = new int[] {20, 15, 10, 5};
+    private void slowSpeedGame(){
+        UriHelper.NavigateTo($"/game/{2000}");
+    }
+
+    private void fastSpeedGame(){
+        UriHelper.NavigateTo($"/game/{300}");
+    }
+
+    private void normalSpeedGame(){
+        UriHelper.NavigateTo($"/game/{1500}");
+    }
+
+
+}

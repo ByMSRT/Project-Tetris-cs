@@ -1,4 +1,4 @@
-@page "/game"
+@page "/game/{Speed}"
 @using System;
 @using System.Timers;
 @using Project_Tetris_cs.Data;
@@ -8,6 +8,9 @@
 @using System.Threading.Tasks;
 
 @code {
+
+    [Parameter]
+    public string Speed { get; set; }
     private bool dirty = false;
     Grid grid = new Grid(20, 10);
     Tetris tetrisPiece = new Tetris();
@@ -20,7 +23,6 @@
         }
         return result;
     }
-
     bool IsGameRunning = false;
     bool IsPause = false;
     bool verifyButton = true;
@@ -47,7 +49,7 @@
                 @* StateHasChanged notifie le composant que son état a changé. *@
                 this.StateHasChanged();
                 @* Task.Delay fait office de timer *@
-                await Task.Delay(1500);
+                await Task.Delay(Int32.Parse(Speed));
             } else {
                 IsGameRunning = false;
                 verifyButton = true;
