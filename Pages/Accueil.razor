@@ -1,4 +1,5 @@
 @page "/accueil"
+@inject NavigationManager UriHelper
 
 <div class="title">
     <img src="/img/Tetris_Title.png">
@@ -9,7 +10,7 @@
     <div class="background">
         <img class="background_b" src="/img/background.png">
         <div class="play">
-            <a href="/game"><img class="play_b" src="/img/PlayBtn.png"></a>
+            <a @onclick="normalSpeedGame"><img class="play_b" src="/img/PlayBtn.png"></a>
         </div>
         <div class="option">
             <a href="/option"><img class="option_b" src="/img/OptionBtn.png"></a>
@@ -20,3 +21,8 @@
     </div>
 </div>
 
+@code {
+    private void normalSpeedGame(){
+        UriHelper.NavigateTo($"/game/{1500}");
+    }
+}
