@@ -50,6 +50,7 @@
                 await Task.Delay(1500);
             } else {
                 IsGameRunning = false;
+                verifyButton = true;
                 StateHasChanged();
                 tokenSource.Cancel();
                 break;
@@ -57,7 +58,7 @@
         }
     }
 
-    
+
     Task OnButtonClicked() {
         return Task.Delay(0);
     }
@@ -68,6 +69,15 @@
 </div>
 
 <div class="phone_outline">
+    <div class="button">
+        <div class="button_b">
+            <button type="submit" @onclick="@movePieceDownAsync" disabled=@IsGameRunning class="play"><img src="https://img.icons8.com/ios-filled/50/000000/play--v1.png"/></button>
+            <button type="submit" @onclick="@gameIsPause" disabled=@IsPause class="pause"><img src="https://img.icons8.com/ios-filled/50/000000/pause--v1.png"/></button>
+            <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" disabled=@verifyButton class="left"><img src="https://img.icons8.com/ios-filled/50/000000/left.png"/></button>
+            <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" disabled=@verifyButton class="right"><img src="https://img.icons8.com/ios-filled/50/000000/right--v1.png"/></button>
+            <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" disabled=@verifyButton class="down"><img src="https://img.icons8.com/ios-filled/50/000000/down--v2.png"/></button>
+        </div>
+    </div>
     <img class="phone" src="/img/iphone_x.png">
     <div class="background">
         <img class="background_b" src="/img/background.png">
@@ -91,11 +101,6 @@
         </div>
     </div>
 
-    <button type="submit" @onclick="@movePieceDownAsync" disabled=@IsGameRunning class="play"><img src="https://img.icons8.com/ios-filled/50/000000/play--v1.png"/></button>
-    <button type="submit" @onclick="@gameIsPause" disabled=@IsPause class="pause"><img src="https://img.icons8.com/ios-filled/50/000000/pause--v1.png"/></button>
-    <button type="submit" @onclick="@tetrisPiece.block.movePieceLeft" disabled=@verifyButton class="left"><img src="https://img.icons8.com/ios-filled/50/000000/left.png"/></button>
-    <button type="submit" @onclick="@tetrisPiece.block.movePieceRight" disabled=@verifyButton class="right"><img src="https://img.icons8.com/ios-filled/50/000000/right--v1.png"/></button>
-    <button type="submit" @onclick="@tetrisPiece.block.movePieceDown" disabled=@verifyButton class="down"><img src="https://img.icons8.com/ios-filled/50/000000/down--v2.png"/></button>
 
     <a href="/accueil"><img class="back" src="/img/BackBtn.png"></a>
 
