@@ -102,9 +102,9 @@
                         @for (int indexColumn = 0; indexColumn < grid.column; indexColumn++)
                         {
                             @if (placePiece(indexRow, indexColumn)) {
-                                <td class="tetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                <td class="tetromino"></td>
                             } else {
-                                <td class="notetromino">@grid.finallyGrid[indexRow, indexColumn]</td>
+                                <td class="notetromino"></td>
                             }
                         }
                     </div>
